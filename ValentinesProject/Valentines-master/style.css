@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+  background-image: url("background.jpg"); /* Setting the background image */
+  background-size: cover; /* Ensures the background covers the entire screen */
+  background-position: center; /* Centers the background */
+  background-repeat: no-repeat; /* Prevents background from repeating */
+  background-attachment: fixed; /* Creates a parallax effect */
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  color: white; /* Text color */
+  font-family: Arial, sans-serif; /* Font style */
+  text-align: center; /* Centers text alignment */
+  position: relative; /* Needed for absolute positioning of child elements */
+}
+
+/* Responsive GIF button */
+.button-gif {
+  position: absolute; /* Allows precise placement */
+  left: calc(32.8vw); /* Adjusts position based on screen width */
+  top: calc(65vh); /* Adjusts position based on screen height */
+  width: 8vw; /* Width scales proportionally with screen size */
+  max-width: 150px; /* Maximum width limit */
+  height: auto; /* Maintains aspect ratio */
+  cursor: pointer; /* Changes cursor to pointer (hand icon) */
+  transition: transform 0.2s; /* Smooth animation effect on hover */
+}
+
+.button-gif:hover {
+  transform: scale(1.1); /* Enlarges the button when hovered */
+}
+
+/* 🌐 Responsiveness for smaller screens */
+@media (max-width: 1920px) {
+  .button-gif {
+    width: 12vw; /* Increases button size on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .button-gif {
+    width: 15vw; /* Further increases button size on phones */
+  }
+}

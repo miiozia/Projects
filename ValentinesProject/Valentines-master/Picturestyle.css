@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Full height of the viewport */
+  background-image: url("pictureback.jpg"); /* Background image */
+  background-size: cover; /* Ensures the background fills the entire page */
+  background-position: center; /* Centers the background */
+  background-attachment: fixed; /* Creates a parallax effect */
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  font-family: Arial, sans-serif; /* Font style */
+  overflow: hidden; /* Prevents scrolling */
+}
+
+/* Frame in the center - always full screen height */
+.frame {
+  width: 500px; /* Fixed width of the frame */
+  height: 100vh; /* Full height of the screen */
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background-image: url("frame.jpg"); /* Frame as a background */
+  background-size: cover; /* Ensures the background fills the entire frame */
+  background-repeat: no-repeat; /* Prevents background from repeating */
+  background-position: center; /* Centers the background */
+}
+
+/* Image sliding in from the top */
+.photos {
+  width: auto;
+  height: 100%; /* Adjusts to the height of the frame */
+  max-width: 90%; /* Ensures the image does not exceed the frame width */
+  max-height: 100vh; /* Limits the height to the screen */
+  position: absolute;
+  object-fit: contain; /* Keeps the aspect ratio without cropping */
+  z-index: 2;
+  top: -100%; /* Starts off-screen above the frame */
+  opacity: 0; /* Initially invisible */
+  transition: transform 1.5s ease-in-out, opacity 1s; /* Smooth animation */
+}
+
+/* Animation for image appearance */
+.photos.show {
+  transform: translateY(calc(100% + 20px)); /* Moves the image down into view */
+  opacity: 1; /* Makes the image fully visible */
+}
+
+/* 🌐 Responsiveness for smaller screens */
+@media (max-width: 900px) {
+  .frame {
+    width: 80vw; /* Adjust width for tablets */
+    height: 100vh; /* Maintain full screen height */
+  }
+  .photos {
+    height: 75%; /* Reduce image height */
+    max-height: 70vh; /* Prevents image from being too large */
+  }
+}
+
+@media (max-width: 600px) {
+  .frame {
+    width: 90vw; /* Adjust width for mobile devices */
+    height: 100vh; /* Maintain full screen height */
+  }
+  .photos {
+    height: 65%; /* Further reduce image height */
+    max-height: 60vh; /* Ensures proper scaling on small screens */
+  }
+}
